@@ -1,4 +1,3 @@
-import React from 'react'
 import HomeRoute from './home'
 import AboutRoute from './about'
 
