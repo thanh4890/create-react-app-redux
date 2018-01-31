@@ -1,17 +1,9 @@
 import React from 'react'
 import HomeRoute from './home'
+import AboutRoute from './about'
 
-const Bus = () => <h3>Bus</h3>
-const Cart = () => <h3>Cart</h3>
-
+// @see https://reacttraining.com/react-router/web/guides/static-routes
 export default [
   HomeRoute,
-  {
-    path: '/bus',
-    component: Bus
-  },
-  {
-    path: '/cart',
-    component: Cart
-  }
+  AboutRoute
 ]

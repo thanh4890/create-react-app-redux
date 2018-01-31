@@ -5,8 +5,9 @@ import {
   Link
 } from 'react-router-dom'
 
+// @see https://medium.com/@ivanmontiel/changing-old-habits-in-react-router-4-8483ee5e087c
 const RouteWithSubRoutes = (route) => (
-  <Route path={route.path} render={props => (
+  <Route exact={route.exact} path={route.path} render={props => (
     // pass the sub-routes down to keep nesting
     <route.component {...props} routes={route.routes}/>
   )}/>
@@ -17,8 +18,7 @@ const App = (props) => (
     <div>
       <header>
         <Link to="/">Home</Link>
-        <Link to="/bus">Bus</Link>
-        <Link to="/cart">cart</Link>
+        <Link to="/about">About</Link>
       </header>
 
       {props.routes.map((route, i) => (

@@ -1,4 +1,4 @@
-import Home from '../components/Home.js'
+import Home from '../components/Home'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -7,7 +7,7 @@ import {
   incrementAsync,
   decrement,
   decrementAsync
-} from '../modules'
+} from '../modules/counter'
 
 const mapStateToProps = state => ({
   count: state.counter.count,
