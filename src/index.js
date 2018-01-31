@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './store'
 import App from './containers/app'
+import routes from './routes'
 
 import 'sanitize.css/sanitize.css'
 import './index.css'
@@ -14,7 +15,7 @@ render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
-        <App />
+        <App routes={routes}/>
       </div>
     </ConnectedRouter>
   </Provider>,

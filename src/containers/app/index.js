@@ -1,20 +1,31 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom'
-import Home from '../home'
-import About from '../about'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-const App = () => (
-  <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
+const RouteWithSubRoutes = (route) => (
+  <Route path={route.path} render={props => (
+    // pass the sub-routes down to keep nesting
+    <route.component {...props} routes={route.routes}/>
+  )}/>
+)
 
-    <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
-    </main>
-  </div>
+const App = (props) => (
+  <Router>
+    <div>
+      <header>
+        <Link to="/">Home</Link>
+        <Link to="/bus">Bus</Link>
+        <Link to="/cart">cart</Link>
+      </header>
+
+      {props.routes.map((route, i) => (
+        <RouteWithSubRoutes key={i} {...route}/>
+      ))}
+    </div>
+  </Router>
 )
 
 export default App
